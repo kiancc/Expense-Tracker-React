@@ -1,0 +1,52 @@
+.spendingbreakdown-grid {
+    padding: 1em
+}
+
+.spendingbreakdown-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.breakdown-container {
+    position: relative;
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+
+.breakdown-container .progress-bar {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.breakdown-container .total {
+    position: absolute;
+    top: 5em;
+    left: 0;
+}
+
+.breakdown-container .category {
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 3.5em;
+    left: 0;
+}
+
+.breakdown-container button {
+    padding: 0;
+    margin: 0;
+    right: 1em;
+    bottom: 0.4em;
+    position: absolute;
+    background-color: antiquewhite;
+    border: none;
+    cursor: pointer;
+}
+
+
+.spendingbreakdown-container p {
+    font-weight: 800;
+    padding-left: 1em;
+}

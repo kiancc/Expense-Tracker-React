@@ -1,0 +1,99 @@
+/* Styling for grid-container */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+
+/* Styling for ExpenseList */
+
+.grid-container header {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    text-align: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+h2 {
+    text-align: center;
+}
+
+.ExpenseList-container, .SpendingBreakdown-container {
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "Public Sans", sans-serif;
+}
+
+.ExpenseList-container {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ExpenseList-container table {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.ExpenseList-container th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.ExpenseList-container td {
+    padding: 10px;
+}
+
+.ExpenseList-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.ExpenseList-container tr:hover {
+    background-color: #e6e6e6;
+}
+
+/* Styling for SpendingBreakdown */
+
+.SpendingBreakdown-container {
+    position: relative;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    width: 100%;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.SpendingBreakdown-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.SpendingBreakdown-container li {
+    padding: 5px;
+    margin:0.5em;
+    margin-bottom: 1em;
+    /*border-bottom: 1px solid black;*/
+    width: 30em;
+    border-radius: 0.5em;
+}
+
+.SpendingBreakdown-container li span {
+    font-weight: bold;
+}
+
+.SpendingBreakdown-container li ul {
+    margin-left: 20px;
+}
+.total-spending-container {
+    bottom: 0;
+    padding-left: 9em;
+    position: absolute;
+}
