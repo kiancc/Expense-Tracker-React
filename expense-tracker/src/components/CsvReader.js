@@ -28,7 +28,7 @@ const CsvReader = ({ onDataLoaded }) => {
     return (
         <div>
             <h2>CSV Reader</h2>
-            <input type="file" accept=".csv" onChange={handleFileChange} />
+            <input type="file" accept=".csv" id="upload-file" onChange={handleFileChange}/>
         </div>
     );
 };

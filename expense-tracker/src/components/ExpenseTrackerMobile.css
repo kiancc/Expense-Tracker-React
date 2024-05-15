@@ -26,7 +26,15 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: "Public Sans", sans-serif;
+    width: 100%;
 }
+
+.csvreader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .ExpenseForm-container {
     grid-row: 2;
@@ -35,7 +43,6 @@ h2 {
 .ExpenseList-container {
     grid-column: 1;
     grid-row: 4;
-    width: 100%;
     border-collapse: collapse;
 }
 
@@ -69,7 +76,6 @@ h2 {
     position: relative;
     grid-column: 1;
     grid-row: 3;
-    width: 100%;
     border: 1px solid #ccc;
     text-align: center;
 }
