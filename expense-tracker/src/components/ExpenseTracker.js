@@ -3,6 +3,7 @@ import ExpenseForm from './ExpenseForm';
 import SpendingBreakdown from './SpendingBreakdown';
 import CsvReader from './CsvReader';
 import DatePicker from 'react-datepicker';
+import Budgets from './Budgets'
 import 'react-datepicker/dist/react-datepicker.css';
 //import './ExpenseTracker.css'; // Import the CSS file for styling
 import './ExpenseTrackerMobile.css'; // Import the CSS file for styling
@@ -12,8 +13,18 @@ const ExpenseTracker = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [categories, setCategories] = useState([]);
+
   const [totals, setTotals] = useState([]);
-  
+  const [budgets, setBudgets] = useState({    
+  "Groceries": 0,
+  "Utilities": 0,
+  "Off License": 0,
+  "Transportation": 0,
+  "Dining out": 0,
+  "Entertainment": 0,
+  "Health": 0,
+  "Shopping": 0,
+  "Others": 0});
 
   const addExpense = (newExpense) => {
     setExpenses([...expenses, newExpense]);
@@ -35,14 +46,12 @@ const ExpenseTracker = () => {
     setExpenses(newExpenses);
   };
 
-/*
-  const calculateTotalByCategory = () => {
-    const totals = {};
-    expenses.forEach((expense) => {
-      totals[expense.category] = (totals[expense.category] || 0) + expense.amount;
-    });
-    return totals;
-  };*/
+  const updateBudget = (category, budget) => {
+    setBudgets((prevBudgets) => ({
+      ...prevBudgets,
+      [category]: budget,
+    }));
+  };
 
   // Filter expenses based on selected date range
   const filteredExpenses = expenses.filter((expense) => {
@@ -92,9 +101,12 @@ const ExpenseTracker = () => {
           placeholderText="End Date"
         />
       </div>
+    <div class="Budgets-Container">
+      <Budgets onUpdateBudget={updateBudget} />
+    </div>
     <div class="SpendingBreakdown-container">
       <h2>Spending Breakdown</h2>
-      <SpendingBreakdown categories={categories} totals={totals} onDeleteCategory={deleteCategory}/>
+      <SpendingBreakdown categories={categories} totals={totals} budgets={budgets} onDeleteCategory={deleteCategory} onUpdateBudget={updateBudget} />
       <br></br>
       <div class="total-spending-container">
         <h3>Total Spending: ${filteredExpenses.reduce((total, expense) => total + expense.amount, 0).toFixed(2)}</h3>
